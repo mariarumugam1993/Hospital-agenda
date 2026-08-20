@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monthly Academic Meet — Department of Anaesthesiology &amp; Critical Care</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F5F6F3;
+    --panel:#FFFFFF;
+    --ink:#1D2624;
+    --ink-soft:#57625E;
+    --rule:#DADFDA;
+    --teal:#2E5D59;
+    --maroon:#8E3B39;
+    --ghost:#E9ECE8;
+  }
+
+  *{ box-sizing:border-box; }
+
+  html,body{
+    margin:0;
+    padding:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  body{
+    display:flex;
+    justify-content:center;
+    padding: clamp(28px, 6vw, 80px) 20px 100px;
+  }
+
+  main{
+    width:100%;
+    max-width:760px;
+  }
+
+  /* ---------- HEADER ---------- */
+
+  header{
+    margin-bottom: clamp(40px, 6vw, 64px);
+  }
+
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--maroon);
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:22px;
+  }
+
+  .eyebrow::before{
+    content:"";
+    width:22px;
+    height:1px;
+    background:var(--maroon);
+    display:inline-block;
+  }
+
+  h1{
+    font-family:'Newsreader', serif;
+    font-weight:500;
+    font-size: clamp(30px, 4.6vw, 42px);
+    line-height:1.12;
+    letter-spacing:-.01em;
+    margin:0 0 6px;
+    color:var(--ink);
+  }
+
+  h1 em{
+    font-style:italic;
+    font-weight:400;
+    color:var(--teal);
+  }
+
+  .dept{
+    font-size:14px;
+    color:var(--ink-soft);
+    margin:0 0 30px;
+    font-weight:500;
+    letter-spacing:.01em;
+  }
+
+  .meta-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap: 10px 34px;
+    border-top:1px solid var(--rule);
+    border-bottom:1px solid var(--rule);
+    padding: 16px 0;
+  }
+
+  .meta-item{
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+  }
+
+  .meta-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+
+  .meta-value{
+    font-size:14.5px;
+    font-weight:500;
+    color:var(--ink);
+  }
+
+  /* ---------- AGENDA ---------- */
+
+  .agenda{
+    position:relative;
+  }
+
+  .agenda-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin: 0 0 18px;
+  }
+
+  .item{
+    position:relative;
+    display:grid;
+    grid-template-columns: 56px 1fr;
+    gap: 4px 22px;
+    padding: 30px 0;
+    border-top:1px solid var(--rule);
+  }
+
+  .item:last-child{
+    border-bottom:1px solid var(--rule);
+  }
+
+  .item-index{
+    font-family:'Newsreader', serif;
+    font-weight:400;
+    font-style:italic;
+    font-size:40px;
+    line-height:1;
+    color:var(--ghost);
+    -webkit-text-stroke: 1px var(--rule);
+    position:relative;
+    top:-2px;
+  }
+
+  .item-body{
+    min-width:0;
+  }
+
+  .item-topic{
+    font-family:'Newsreader', serif;
+    font-weight:600;
+    font-size: clamp(18px, 2.4vw, 21px);
+    line-height:1.32;
+    color:var(--ink);
+    margin:0 0 16px;
+  }
+
+  .item-people{
+    display:flex;
+    flex-wrap:wrap;
+    gap: 10px 40px;
+  }
+
+  .person{
+    display:flex;
+    flex-direction:column;
+    gap:3px;
+  }
+
+  .person-role{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10px;
+    letter-spacing:.09em;
+    text-transform:uppercase;
+    color: var(--teal);
+  }
+
+  .person-role.mod{ color:var(--maroon); }
+
+  .person-name{
+    font-size:14px;
+    color:var(--ink);
+    font-weight:500;
+  }
+
+  .person-sub{
+    font-size:12.5px;
+    color:var(--ink-soft);
+  }
+
+  /* ---------- FOOTER ---------- */
+
+  footer{
+    margin-top: clamp(44px, 6vw, 60px);
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    flex-wrap:wrap;
+    gap:20px 40px;
+    padding-top: 26px;
+  }
+
+  .venue{
+    max-width: 420px;
+  }
+
+  .venue-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-bottom:6px;
+  }
+
+  .venue-value{
+    font-family:'Newsreader', serif;
+    font-size:18px;
+    color:var(--ink);
+    line-height:1.4;
+  }
+
+  .stamp{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.5px;
+    color: var(--ink-soft);
+    text-align:right;
+    line-height:1.6;
+    letter-spacing:.02em;
+  }
+
+  .stamp strong{
+    color:var(--ink);
+    font-weight:500;
+  }
+
+  @media (max-width:520px){
+    .item{
+      grid-template-columns: 40px 1fr;
+    }
+    .item-index{
+      font-size:30px;
+    }
+    footer{
+      flex-direction:column;
+      align-items:flex-start;
+    }
+    .stamp{ text-align:left; }
+  }
+
+  @media (prefers-reduced-motion:no-preference){
+    .item{
+      animation: rise .5s ease both;
+    }
+    .item:nth-child(1){ animation-delay:.03s; }
+    .item:nth-child(2){ animation-delay:.09s; }
+    .item:nth-child(3){ animation-delay:.15s; }
+    .item:nth-child(4){ animation-delay:.21s; }
+    @keyframes rise{
+      from{ opacity:0; transform:translateY(6px); }
+      to{ opacity:1; transform:translateY(0); }
+    }
+  }
+
+  a{ color:inherit; }
+
+  :focus-visible{
+    outline: 2px solid var(--teal);
+    outline-offset: 3px;
+  }
+</style>
+</head>
+<body>
+<main>
+
+  <header>
+    <div class="eyebrow">Kalaignar Centenary Super Speciality Hospital · Guindy</div>
+    <h1>Monthly Academic <em>Meet</em></h1>
+    <p class="dept">Department of Anaesthesiology &amp; Critical Care</p>
+
+    <div class="meta-row">
+      <div class="meta-item">
+        <span class="meta-label">Date</span>
+        <span class="meta-value">13 June 2026, Saturday</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Venue</span>
+        <span class="meta-value">2nd Floor Auditorium, KCSSH</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Sessions</span>
+        <span class="meta-value">4 presentations</span>
+      </div>
+    </div>
+  </header>
+
+  <section class="agenda">
+    <p class="agenda-label">Order of proceedings</p>
+
+    <div class="item">
+      <div class="item-index">01</div>
+      <div class="item-body">
+        <h2 class="item-topic">Pharmacology for the Day — Enoxaparin</h2>
+        <div class="item-people">
+          <div class="person">
+            <span class="person-role">Presenter</span>
+            <span class="person-name">Dr. Naveen Kumar</span>
+            <span class="person-sub">KMC PG Student</span>
+          </div>
+          <div class="person">
+            <span class="person-role mod">Moderator</span>
+            <span class="person-name">Dr. V. Viji</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-index">02</div>
+      <div class="item-body">
+        <h2 class="item-topic">Acute Limb Ischemia — Anaesthetic Challenges</h2>
+        <div class="item-people">
+          <div class="person">
+            <span class="person-role">Presenter</span>
+            <span class="person-name">Dr. Abhinand Sagar</span>
+            <span class="person-sub">KMC PG Student</span>
+          </div>
+          <div class="person">
+            <span class="person-role mod">Moderator</span>
+            <span class="person-name">Dr. N. Manoj</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-index">03</div>
+      <div class="item-body">
+        <h2 class="item-topic">Case Report — Lumbar Sympathectomy using Radiofrequency Ablation</h2>
+        <div class="item-people">
+          <div class="person">
+            <span class="person-role">Presenter</span>
+            <span class="person-name">Dr. K. Aishwarya</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-index">04</div>
+      <div class="item-body">
+        <h2 class="item-topic">USG Guided Blocks for Lower Limb Vascular Procedures — Demonstration</h2>
+        <div class="item-people">
+          <div class="person">
+            <span class="person-role">Presenter</span>
+            <span class="person-name">Dr. John Solomon Nesaraj</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="venue">
+      <div class="venue-label">Venue</div>
+      <div class="venue-value">2nd Floor Auditorium, KCSSH, Guindy</div>
+    </div>
+    <div class="stamp">
+      <strong>13<sup>th</sup> June 2026</strong><br>
+      Dept. of Anaesthesiology &amp; Critical Care
+    </div>
+  </footer>
+
+</main>
+</body>
+</html>
